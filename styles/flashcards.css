@@ -1,0 +1,189 @@
+@import url(theme.css);
+@import url(util.css);
+
+.f-outer-bottom {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.f-sets-cont {
+    /* background-color: var(--learn-col); */
+    background-color: var(--darken2);
+    border-radius: 5px;
+    height: 100%;
+    position: relative;
+}
+
+.f-set {
+    background-color: var(--secondary-bg-col);
+    padding-block: 0.8em;
+    padding-inline: 0.8em;
+    width: 100%;
+    border-radius: 2px;
+    color: var(--col);
+
+    &.f-set-active{
+        background-color: var(--bg-col);
+    }
+}
+
+.f-set-name {
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.f-close {
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    padding: .8em;
+    align-items: center;
+}
+
+.f-outer-header, .f-title {
+    font-size: 2rem;
+    font-weight: bolder;
+
+    >span {
+        font-size: inherit;
+    }
+}
+
+.f-arrow {
+    height: 100%;
+    padding-inline: 1.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &:not([disabled]) {
+        cursor: pointer;
+    }
+}
+
+.f-show-answer {
+    background-color: var(--learn-col);
+    padding: 1em 1.6em;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 100%;
+}
+
+.f-rank {
+    /* color: var(--secondary-bg-col); */
+    color: var(--col);
+}
+
+.f-cur-index {
+    /* background-color: var(--col); */
+    /* color: var(--secondary-bg-col); */
+    border-radius: 3px;
+    /* padding: .8em 1.4em; */
+    user-select: none;
+}
+
+.f-card {
+    display: grid;
+    align-items: center;
+    background-color: var(--darken2);
+    height: 20em;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    user-select: none;
+
+    transition: transform 0.15s;
+    transition-timing-function: ease-out;
+    transform: rotateX(0deg);
+
+    .f-card-top, .f-card-bottom {
+        transform: rotateX(0deg);
+        transition-duration: 0ms;
+    }
+
+    &.flipped {
+        transform: rotateX(180deg);
+        .f-card-top, .f-card-bottom {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
+
+.f-card-prompt {
+    font-size: 1.6rem;
+    text-align: left;
+    color: var(--col);
+}
+
+.f-language-tag {
+    font-size: 1.4rem;
+}
+
+.f-card-top {
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    padding: 1em;
+    width: 100%;
+}
+
+.f-your-sets {
+    font-size: 18px;
+    padding: 0.2em 0em 0.8em 0.2em; /* hear me out... it made sense in my head*/
+
+    /* Claeb: xD */
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.f-bookmark-toggle{
+    height: 24px;
+    width: 24px;
+    padding: .8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--darken2);
+    color:var(--col);
+}
+.f-bookmark-toggle:hover{
+    background-color:var(--darken0);
+}
+
+.f-controls {
+    background-color: var(--col);
+}
+
+.f-commands {
+    /* background-color: var(--col); */
+    background-color: var(--darken2);
+    gap: 1em;
+    border-radius: 3px;
+    height: 100%;
+    >.f-show-answer {
+        padding: 1.4em;
+        padding-inline-start: 1em;
+    }
+
+    &.padding {
+        padding: 0.4em;
+        padding-inline-start: 1em;
+    }
+}
+
+.f-shuffle {
+    background-color: var(--incorrect-bg);
+    /* color: var(--secondary-bg-col); */
+    color: var(--incorrect-col);
+}
+
+.f-got-it {
+    background-color: var(--correct-bg);
+    /* color: var(--secondary-bg-col); */
+    color: var(--correct-col);
+}
+
+.f-inner-bottom {
+    height: 52px;
+}

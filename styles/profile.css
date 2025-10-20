@@ -1,0 +1,331 @@
+body {
+    overflow-y: scroll;
+}
+
+.p-cont-outer {
+    width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.p-cont-inner {
+    margin-top: 1em;
+    background-color: var(--secondary-bg-col);
+    display: grid;
+    width: 40em;
+    grid-template-rows: repeat(4, auto);
+    border-radius: 5px;
+    padding: 1em;
+    gap: 1em;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    & >* {
+        padding: 1em;
+        border-radius: 5px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+        &:nth-child(1) {
+            background-color: var(--bg-col);
+            padding: 0em;
+            .p-header-bottom {
+                padding-inline: 1em;
+            }
+        }
+        &:nth-child(2) {
+            background-color: var(--learn-col);
+        }
+        &:nth-child(3) {
+            background-color: var(--practice-col);
+        }
+        &:nth-child(4) {
+            background-color: var(--experiment-col);
+        }
+        &:not(:first-child) {
+            color: var(--secondary-col);
+        }
+    }
+}
+
+.public-toggle {
+    text-transform: uppercase;
+    font: inherit;
+    font-size: 14px;
+    display: flex;
+    background-color: var(--secondary-bg-col);
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    border-radius: 5px;
+    font-weight: 650;
+
+    padding: 8px 16px;
+
+    &.vishidden {
+        visibility: hidden;
+    }
+}
+
+.lesson-public-toggle {
+    color: var(--learn-col);
+}
+
+.project-public-toggle {
+    color: var(--experiment-col);
+}
+
+.challenge-public-toggle {
+    color: var(--practice-col);
+}
+
+.remove-on-load {
+    color: var(--secondary-col);
+}
+
+.p-header-top {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: var(--darken0);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    position: relative;
+    
+    .header-background {
+        border-radius: inherit;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.p-header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.p-h-b-r {
+    display: flex;
+    align-items: center;
+}
+
+.p-badges {
+    background-color: var(--secondary-bg-col);
+    height: 100%;
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    padding: .5em;
+    border-radius: 8px;
+    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    .badge { /* individual badges */
+        background-color: var(--experiment-col);
+        color: var(--secondary-col);
+
+        display: grid;
+        place-items: center;
+        text-align: center;
+
+        width: 65px;
+        height: 60px;
+        border-radius: 5px;
+        padding: .5em;
+        user-select: none;
+    }
+}
+
+.p-first{
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    border-radius: 5px;
+    position: relative;
+    height: 300px; /* NOTE: I'M SETTING THIS VALUE BASED ON MY MACBOOK. WILL LIKELY NEED MEDIA QUERY CHANGES */
+}
+
+.p-pfp {
+    max-width: 75px;
+    height: 75px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    border-radius: 5px;
+    background-color: var(--secondary-bg-col);
+    bottom: 28%; /* again, may need to be changed using media queries based on screen size. not 100% sure, but i'd double check. */
+    left: 10px;
+    z-index: 9;
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.p-view-submissions:disabled {
+    cursor: not-allowed;
+    opacity: .7 !important;
+}
+
+.p-username {
+    font-size: 42px;
+}
+
+.p-section-title {
+    font-size: 24px;
+    display: flex;
+    gap: .5em;
+    justify-content: space-between;
+}
+
+.p-stat {
+    display: grid;
+    padding: 1em;
+    background-color: var(--secondary-bg-col);
+    border-radius: 5px;
+    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    &.split-stat{
+        gap: .5em;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    &.circle-stat {
+        grid-template-rows: auto auto;
+        gap: .5em;
+    }
+}
+
+.circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(black 0% 0%, transparent 0% 100%);
+    position: relative;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 3;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: var(--darken0);
+        z-index: -3;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        background-color: var(--secondary-bg-col);
+        z-index: -2;
+    }
+}
+
+.p-stat-cont-nested {
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr 1fr;
+}
+
+.p-stat-name {
+    display: flex;
+    gap: .5em;
+}
+
+.p-second, .p-third, .p-fourth {
+    display: grid;
+    gap: 1em;
+    width: 100%;
+}
+
+.p-second {
+    .circle {
+        border-color: var(--learn-col);
+    }
+}
+
+.p-third {
+    .circle {
+        border-color: var(--practice-col);
+    }
+}
+
+.p-fourth {
+    .circle {
+        border-color: var(--experiment-col);
+    }
+}
+
+.p-lesson-stats, .p-challenge-stats, .p-project-stats {
+    display: grid;
+    gap: 1em;
+    width: 100%;
+    &.vishidden {
+        grid-template-columns: 1fr;
+        > * {
+            padding-inline-start: 1em;
+        }
+    }
+}
+
+.p-lesson-stats {
+    color: var(--learn-col);
+    grid-template-columns: 1.2fr 2fr;
+}
+
+.p-challenge-stats {
+    color: var(--practice-col);
+    grid-template-columns: 1.2fr 2fr;
+}
+
+.p-project-stats {
+    color: var(--experiment-col);
+    grid-template-columns: auto auto auto;
+}
+
+.p-proj-stat{
+    background-color: var(--secondary-bg-col);
+    color: var(--experiment-col);
+    border-radius: 5px;
+    padding: 1em;
+    display: grid;
+    gap: 1em;
+}
+
+.p-view-submissions, .p-view-inprogress {
+    cursor: pointer;
+    background-color: var(--practice-col);
+}
+
+.p-view-projects {
+    cursor: pointer;
+    background-color: var(--experiment-col);
+}

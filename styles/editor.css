@@ -1,0 +1,657 @@
+:root{
+    --bg:whitesmoke;
+    --border:darkgray;
+
+    --editor-gap:4px;
+
+    /* filter:invert(1); */
+
+    --editor-bg:white;
+
+    /* --vscode-editorGutter-background:var(--bg) !important; */
+}
+
+.main-editor .cont,
+.cont-js.cont,
+.cont-js .cont{
+    background-color:var(--editor-bg);
+    margin:0px;
+    padding-top:10px;
+    height:100%;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+}
+body.is-challenge{
+    --cta-btn-col:var(--practice-col) !important;
+}
+
+.pane-files{
+    width:200px;
+    border-left:none;
+    background-color:var(--bg);
+    margin:var(--editor-gap);
+}
+.pane-code{
+    width:calc(50% - 108px);
+}
+.pane-preview{
+    width:calc(50% - 108px);
+    min-width:338px;
+}
+
+/*  */
+.editor-type-self{
+    filter:brightness(1.5);
+    --c:var(--cta-btn-col);
+}
+
+.editor-menu-bar{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-left:12px;
+}
+.editor-menu-bar > div{
+    padding:7px 12px;
+    font-size:14px;
+    user-select:none;
+    -webkit-user-select:none;
+    border-radius:3px;
+    filter:brightness(0.85);
+}
+.editor-menu-bar > div.icon-div,
+.cur-project-controls > div.icon-div{
+    padding:5px;
+    margin:0px 5px;
+    filter:none;
+}
+.editor-menu-bar > div:hover{
+    background-color:var(--darken);
+}
+
+.d-current-project{
+    border:solid 1px var(--darken0);
+    background-color:var(--darken2);
+    cursor:pointer;
+    white-space:nowrap;
+    overflow:hidden;
+    max-width:200px;
+    text-overflow:ellipsis;
+    margin-right:10px;
+    margin-left:12px;
+}
+.cur-project-controls{
+    display:flex;
+    align-items:center;
+    height:100%;
+    gap:5px;
+}
+.cur-project-controls > div{
+    padding:7px 12px;
+    font-size:14px;
+    user-select:none;
+    -webkit-user-select:none;
+    border-radius:3px;
+    filter:brightness(0.85);
+}
+.cur-project-controls > div.icon-div{
+    padding:5px;
+    filter:none;
+}
+.cur-project-controls > div:hover,
+.cur-project-controls > div.hold{
+    background-color:var(--darken);
+    filter:none;
+}
+
+/* Project Settings */
+.proj-settings{
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:10px;
+    background-color:var(--bg);
+    color:var(--col);
+    z-index:6;
+    border:solid 1px var(--darken0);
+    border-radius:3px;
+    /* width:200px; */
+    font-size:14px;
+    /* filter:brightness(0.9); */
+
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+
+    box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+
+    animation:OpenProjSettings 0.15s ease-out;
+}
+.proj-settings > div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.progress-anim,
+[progress-anim="true"]{
+    animation:ProgressAnim infinite 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    /* animation:ProgressAnim infinite 0.5s ease-in; */
+}
+@keyframes ProgressAnim {
+    0%{
+        rotate:0deg;
+    }
+    0%{
+        rotate:-360deg;
+    }
+}
+
+/* Editor Dash Board */
+.menu-project-dashboard{
+    width:900px;
+    height:600px;
+
+    & .menu-body{
+        margin-top:4px;
+        height:calc(100% - 65px);
+    }
+    & .menu-title{
+        font-size:20px;
+    }
+}
+.edb-body{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:stretch;
+    gap:8px;
+}
+.edb-nav{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:200px;
+    flex-shrink:0;
+}
+.edb-cont{
+    background-color:var(--bg);
+    border-radius:3px;
+    padding:10px;
+}
+.edb-cont > *{
+    width:100%;
+}
+.edb-cont > *:not(:last-child){
+    margin-bottom:10px;
+}
+.edb-cont input{
+    width:100%;
+}
+.edb-nav-cont{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    & button.icon-btn.regular{
+        background-color:var(--bg);
+        color:var(--col);
+        padding:6px 12px;
+        margin:2px 4px;
+        margin-left:8px;
+    }
+    & button.sel{
+        /* background-color:var(--secondary-bg-col) !important; */
+        /* background-color:var(--darken2) !important; */
+        background-color:var(--col) !important;
+        color:var(--bg) !important;
+    }
+    & button::before{
+        height:0%;
+        opacity:0;
+        transition:all 0.1s ease-out;
+        content:"";
+        background-color:var(--col);
+        border-radius:5rem;
+        width:5px;
+        position:absolute;
+        top:50%;
+        /* left:-14px; */
+        /* left:-3px; */
+        left:-10px;
+        transform:translate(0px,-50%);
+    }
+    & button.sel::before{
+        opacity:1;
+        height:65%;
+    }
+}
+.edb-content{
+    background-color:var(--bg);
+    border-radius:3px;
+    /* height:535px; */
+    width:100%;
+    overflow-y:scroll;
+}
+.edb-content-list{
+    display:flex;
+    /* flex-direction:column-reverse; */
+    flex-direction:column;
+    gap:10px;
+    padding:10px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+@media (max-width: 1300px){
+    .edb-content-list{
+        grid-template-columns:1fr;
+    }
+}
+.edb-content-list > div{
+    animation:ShowEDBItem 0.1s ease-out;
+    animation-fill-mode:forwards;
+    user-select:none;
+    -webkit-user-select:none;
+}
+@keyframes ShowEDBItem {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+.project-item{
+    padding:12px;
+    border-radius:5px;
+    background-color:var(--darken2);
+    font-size:14px;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+.project-item .project-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:100%;
+}
+.project-item .l-project-name{
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.project-item .l-project-name-label{
+    margin-right:auto;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width:255px;
+}
+.project-item .l-project-desc{
+    opacity:0.9;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    max-width:calc(100% - 30px);
+    /* max-width:325px; */
+}
+.star{
+    font-family:"Material Symbols Outlined";
+    /* font-family:"Material Icons"; */
+    cursor:pointer;
+    font-size:18px;
+    user-select:none;
+    -webkit-user-select:none;
+}
+.p-icon{
+    font-family:"Material Symbols Outlined";
+    /* font-family:"Material Icons"; */
+    cursor:pointer;
+    font-size:18px;
+    user-select:none;
+    -webkit-user-select:none;
+}
+.project-item.starred .star{
+    font-family:"Material Icons";
+    color:gold;
+}
+body.themestyle-light .project-item.starred .star{
+    color:goldenrod;
+}
+
+.main-icon{
+    font-size:18px;
+}
+
+/* folder item */
+.folder-item .project-info{
+    width:max-content;
+}
+.folder-item > div:first-child{
+    cursor:pointer;
+}
+.folder-item.drag-hover{
+    outline:dashed 2px var(--cta-btn-col);
+}
+
+.current-path-item .d-list{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    font-size:14px;
+    height:20px;
+}
+.current-path-item .d-list > div{
+    user-select:none;
+    -webkit-user-select:none;
+    /* cursor:pointer; */
+}
+.current-path-item .d-list > div:not(:last-child)::after,
+.current-path-item .d-list > div:last-child:first-child::after{
+    content:"/";
+    font-family:monospace;
+    font-size:16px;
+    opacity:0.3;
+    margin:0px 6px;
+    padding:3px;
+    /* border-radius:3px; */
+}
+
+/*  */
+
+.menu-project-dashboard{
+    &{
+        .b-new-project{
+            background-color:var(--experiment-col) !important;
+        }
+        .b-new-folder{
+            /* background-color:var(--darken0) !important; */
+            /* color:var(--col) !important; */
+            /* background-color:var(--experiment-col) !important; */
+        }
+        .b-new-folder:hover{
+            /* background-color:var(--darken) !important; */
+        }
+        .b-open-project{
+            background-color:var(--experiment-col) !important;
+        }
+        .b-open-project.challenge{
+            background-color:var(--practice-col) !important;
+        }
+        /* .edb-body{
+            max-height:calc(100% - 60px);
+        } */
+    }
+    /* &::after{
+        background-color:var(--experiment-col);
+    } */ /* this tints the project dashboard to be green instead of purple, do we want this? */
+}
+
+.center-cont > div{
+    flex-grow:0;
+    flex-shrink:0;
+    overflow:visible;
+}
+
+/* Project Settings Menu */
+.menu.experiment-menu{
+    --accent:var(--experiment-col);
+}
+.menu.practice-menu{
+    --accent:var(--practice-col);
+}
+.menu-project-settings{
+    width:600px;
+    height:min-content;
+}
+.op-cont{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 18px;
+    /* border:solid 1px gray; */
+    /* background-color:var(--darken); */
+    background-color:var(--udarken);
+    border-radius:3px;
+    margin:0px 2px;
+    margin-bottom:16px;
+}
+.op-cont .title{
+    margin-bottom:5px;
+    font-size:15px;
+}
+.menu .text{
+    font-size:14px;
+    opacity:0.7;
+}
+.op-div{
+    /* width:100%; */
+    width:max-content;
+    justify-self:flex-end;
+    align-items:center;
+    /* font-size:22px; */
+    text-transform:uppercase;
+    /* letter-spacing:4px; */
+}
+.op-div.full-width{
+    justify-self:start;
+}
+.op-div .text{
+    /* margin-left:16px; */
+    justify-self:flex-end;
+    text-transform:none;
+    letter-spacing:normal;
+}
+.op-div::before{
+    left:0px;
+    position:absolute;
+    content:"";
+    display:inline-block;
+    width:100%;
+    height:5px;
+    /* background-color:red; */
+    /* border-top:solid 1px gray; */
+}
+.ps-general{
+    gap:32px;
+}
+.ps-general textarea{
+    width:100%;
+    height:100%;
+    padding:4px;
+    font-size:13px;
+    font-family:var(--font);
+}
+.ps-general input[type="text"]{
+    width:100%;
+}
+.ps-general > div{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+}
+.ps-general > div:first-child button{
+    margin-top:16px;
+    width:max-content;
+}
+.b-toggle-privacy{
+    width:88px;
+}
+
+/*  */
+button.load-btn::before{
+    content:"progress_activity";
+    font-family:"Material Symbols Outlined";
+    position:absolute;
+    top:50%;
+    right:-42px;
+    color:var(--col);
+    font-size:20px;
+    translate:-50% -50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    display:none;
+    font-weight:normal;
+}
+button.load-btn.left::before{
+    right:unset;
+    left:-22px;
+}
+button.load-btn.loading::before{
+    display:block;
+    animation:ProgressAnim infinite 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* test div */
+/* .test-div{
+    border:solid 2px red;
+    background-color:rgba(255,0,0,0.4);
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:300px;
+    left:300px;
+    z-index:9999;
+}
+.test-div-sub{
+    background-color:rgba(0,0,255,0.4);
+    border:solid 2px dodgerblue;
+    height:300px;
+    position:relative;
+    z-index:50%;
+} */
+
+/* editor non-text types */
+.editor-img-cont{
+    width:100%;
+    height:100%;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+.editor-img-cont .view{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+}
+.editor-img-cont img{
+    image-rendering:pixelated;
+}
+.editor-img-cont img:hover{
+    outline:dashed 2px var(--col);
+}
+
+.editor-unsupported-file-cont{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.editor-unsupported-file-cont .view{
+    width:350px;
+    gap:25px;
+}
+.js-cont .icon-btn{
+    padding:6px 12px;
+    font-size:12px;
+}
+.js-cont .icon-btn > div:first-child{
+    font-size:18px;
+}
+
+/* Tut Editor Stuff */
+.pane-tutor-code .cont-js{
+    /* pointer-events:none; */
+}
+.pane-tutor-code .cont-js:has(.suggest-widget.visible){
+    /* pointer-events:none; */
+    /* background-color:red; */
+}
+.pane-tutor-code .cont-js .overflowingContentWidgets{
+    /* TMP: Disabled for now bc the tutor points some things out in the right click menu occasionally */
+    /* opacity:0.3; */
+}
+
+/* markdown cont */
+.js-cont:has(.markdown-cont){
+    overflow-y:auto;
+}
+.markdown-cont{
+    margin:0px 15px;
+    white-space:break-spaces;
+}
+.markdown-cont *{
+    text-shadow:none;
+    /* vvv - putting this here makes everything the same smaller size, maybe this is better but I'm not sure */
+    /* font-size:inherit !important; */
+}
+.markdown-cont code{
+    font-size:inherit !important;
+}
+.markdown-cont code:not([class^=language-]){
+    background-color:var(--darken) !important;
+    border-radius:5px;
+    padding:1px 6px;
+}
+.markdown-cont code[class^=language-]{
+    /* font-size:15px !important; */
+    font-size:14px !important;
+}
+.markdown-cont pre{
+    background:none !important;
+    line-height:1.25 !important;
+    padding:0px !important;
+    margin:0px !important;
+}
+.markdown-cont hr{
+    margin-block:10px;
+    border-color:var(--darken0);
+}
+.markdown-cont ul,
+.markdown-cont ol{
+    padding:0px !important;
+    margin:0px !important;
+    margin-left:24px !important;
+}
+body.themestyle-dark .markdown-cont pre{
+    filter:invert(1);
+}
+
+/* link monaco colors to prism colors */
+/* span.token.boolean, span.token.constant, span.token.deleted, span.token.number, span.token.property, span.token.symbol, span.token.tag{ */
+    /* mtk14 */
+    /* color:#800000; */
+/* } */
+
+/* span.token.attr-name, span.token.builtin, span.token.char, span.token.inserted, span.token.selector, span.token.string{ */
+    /* mtk4 */
+    /* color:#ff0000; */
+/* } */
+
+/* span.token.punctuation{ */
+    /* mtk10 */
+    /* color:#383838; */
+/* } */
+
+/* span.token.atrule, span.token.attr-value, span.token.keyword{ */
+    /* mtk6 */
+    /* color:#0000ff; */
+/* } */
+
+/* span.token.attr-name, span.token.builtin, span.token.char, span.token.inserted, span.token.selector, span.token.string{ */
+    /* mtk14 */
+    /* color:#800000; */
+/* } */
+
+/* span.token.boolean, span.token.constant, span.token.deleted, span.token.number, span.token.property, span.token.symbol, span.token.tag{ */
+    /* mtk4 */
+    /* color:#ff0000; */
+/* } */

@@ -1,0 +1,1 @@
+console.log("----- CUSTOM INJECTION FROM VITE LOADED");
