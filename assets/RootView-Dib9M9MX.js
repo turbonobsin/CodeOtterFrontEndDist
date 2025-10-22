@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{c as r,r as t,o as c}from"./index-CMF_CePX.js";const n={};function s(_,a){const o=t("RouterView");return c(),r(o)}const m=e(n,[["render",s]]);export{m as default};
