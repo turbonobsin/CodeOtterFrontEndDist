@@ -1068,3 +1068,58 @@ div.pane-files{
     height:100%;
     background-color:green;
 }
+
+/* V3 */
+
+.v3-scene{
+    outline:solid 1px tomato;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    --base-zoom:1;
+    --zoom:1;
+    zoom:calc(var(--base-zoom) * var(--zoom));
+    overflow:hidden;
+    /* transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+    /* transition:all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+    /* transition:all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); */
+
+    background-color:var(--bg,transparent);
+}
+.v3-scene-content{
+    width:100%;
+    height:100%;
+    transition:all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    position:absolute;
+    scale:1;
+    left:0px;
+    top:0px;
+
+    &.centered{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+}
+
+.v3-editor-tab{
+    position:absolute;
+    font-size:12px;
+    left:0px;
+    bottom:0px;
+    padding:5px;
+    background-color:var(--cta-btn-col);
+    color:white;
+    border-radius:3px;
+    pointer-events:none;
+}
+
+.v3-measurement-obj{
+    width:5px;
+    height:5px;
+    background-color:white;
+    rotate:45deg;
+}

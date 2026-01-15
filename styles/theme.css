@@ -72,6 +72,9 @@ body.themestyle-dark{
 
     --theme-shade:black;
     --theme-shade-inv:white;
+
+    /* specific */
+    /* background-color: var(--bg) !important; */
 }
 iframe{
     transition:filter 0.1s ease-out;
@@ -207,7 +210,7 @@ body.theme-dark{
     --bg-col:#050505;
     /* --cta-btn-col:#245; */
 
-    --menu-btn-bg:var(--bg-col);
+    --menu-btn-bg:#333;
 
     --theme-inv-filter:invert(0);
 
