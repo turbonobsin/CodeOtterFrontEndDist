@@ -2309,3 +2309,15 @@ body.themestyle-light .menu-submission-menu{
 .force-hide{
     display:none !important;
 }
+
+/*  */
+
+.fade-transition-enter-active,
+.fade-transition-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-transition-enter-from,
+.fade-transition-leave-to {
+    opacity: 0;
+}
