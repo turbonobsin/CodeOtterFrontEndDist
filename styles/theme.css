@@ -9,6 +9,7 @@ body.themestyle-light{
     --btn-bg:#eee;
     --btn-border:#ccc;
     --btn-col:#111;
+    --incorrect-bg:rgb(167, 42, 42);
 
     /* review lesson colors */
     /* --incorrect-bg:rgb(100,20,20,1);
@@ -56,6 +57,8 @@ body.themestyle-dark{
     --btn-bg:#353535;
     --btn-border:#454545;
     --btn-col:#eee;
+    --late-col: rgb(223, 82, 17);
+    --incorrect-bg:rgb(199, 54, 54);
 
     /* --bubble-bg:rgba(46, 70, 140, 0.9); */
     --bubble-bg:rgb(27, 33, 50);

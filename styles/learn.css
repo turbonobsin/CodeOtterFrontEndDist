@@ -179,6 +179,8 @@ body.themestyle-light .item-cont.locked:has(.circle.locked.unfinished)::before{
 }
 .item-cont.locked{
     border-radius:50%;
+    opacity:0.425;
+    --op-scale:0.425;
 }
 .circle .lock-icon{
     position:absolute;
@@ -193,6 +195,7 @@ body.themestyle-light .item-cont.locked:has(.circle.locked.unfinished)::before{
     --c:rgb(160,160,160);
     transition:filter 0.2s ease-out, translate 0.5s ease-out;
     pointer-events:none;
+    opacity:0.25 !important;
 }
 .path-cont.hov{
     filter:brightness(1.5);
@@ -200,6 +203,12 @@ body.themestyle-light .item-cont.locked:has(.circle.locked.unfinished)::before{
 }
 .path-cont path{
     stroke:var(--c);
+}
+.path-cont.complete{
+    opacity:1 !important;
+    /* --c:var(--cta-btn-col) !important; */
+    /* --c:var(--correct-border) !important; */
+    /* --c:#035b03 !important; */
 }
 
 .btn-start{
